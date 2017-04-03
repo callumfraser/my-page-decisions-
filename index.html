@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="suggester.css">
+      <link rel="stylesheet" href="animations.css">
+      <title>Suggester.com</title>
+      <script src="handlebars-v4.0.5.js"></script>
+    </head>
+
+  <body>
+    <div class="welcome">
+      <p class="hello">
+      Welcome to suggester.com (domain forthcoming)!<br>
+      We are here to help suggest a possible activity for your day
+    </p>
+    </div>
+
+     <div class="inputArea">
+     <table class="choices">
+       <tr>
+         <td class="timeArrived">
+           <p class="timeArrivedP">
+        Time arrived:<br><br>
+        <select class='timeArrivedChoice'>
+          <option selected hidden value="notOption">Select your time</option>
+        <option value="6:45">6:30-7:00</option>
+        <option value="7:15">7:00-7:30</option>
+        <option value="8:00">7:30-8:30</option>
+        <option value="9:00">8:30-9:30</option>
+      </p>
+      </select>
+      </td>
+      <td class="weather">
+        <p class= "weatherP">
+        Weather today:<br><br>
+          <select class='weatherChoice'>
+        <option value='notOption' selected hidden>Select the weather</option>
+        <option value="sunny">Sunny</option><br>
+        <option value="mild">Cloudy or chilly</option><br>
+        <option value="lightRain">Light rain</option><br>
+        <option value="hardRain">Hard rain</option>
+      </select>
+    </p>
+      </td>
+      <td class="health">
+        <p class="healthP">
+        State of health:<br><br>
+          <select class='healthChoice'>
+        <option value='notOption' selected hidden>Select your health status</option>
+        <option value="well">Well</option><br>
+        <option value="tired">Tired</option><br>
+        <option value="sickFlu">Sick (flu)</option><br>
+        <option value="sickStomach">Sick (stomach)</option>
+      </select>
+    </p>
+      </td>
+    </table>
+    <!-- <div class="buttonDiv"> -->
+      <button type="button" id="suggestCall"  >Get a suggestion</button>
+  <!-- </div> -->
+</div>
+  <script id="suggest" type="text/x-handlebars-template">
+    <div id="suggestionPopUp" class="suggestionPopUp move">
+    <p class="sentence">{{sentence}}</p><br>
+  </br>
+    <table class="normal">
+      <tr>
+      <th>
+        Here are your options today:
+      </th>
+    </tr>
+      {{#each activities}}
+    <tr>
+      <td class="normal">{{activity}}</td>
+    </tr>
+      {{/each}}
+  </table>
+  <br>
+  <button type="button" id="clear" onclick='removeSuggest()'>Clear suggestions</button>
+</div>
+
+  </script>
+
+  </body>
+
+<script src="suggester.js" charset="utf-8"></script>
+
+</html>
